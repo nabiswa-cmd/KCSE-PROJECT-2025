@@ -1,100 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="VICTORY SCHOOL CLUB MEMBERSHIP SYSYTEM" content="width=device-width, initial-scale=1.0">
-    <title>VICTORY SCHOOL CLUB</title>
-    <style>
-        body{
-            background-color: blue;
-            
-        .title{
-            margin-bottom: 0;
-            background-color: chocolate;
-            padding-bottom: 0;
-        
-        }
-        .nabiswa {
-            display: inline-block;
-            margin-left: 20px;
-            color: #0d057c;
-            font-size: 30px;
-            margin-top: 2px;
-            font-weight: bolder;
-            margin-bottom: 0;
-        }
-        .kcse{
-            display: inline-block;
-            margin-left: 200px;
-            margin-top: 2px;
-            font-weight: bolder;
-            color: hwb(268 1% 94%);
-            font-size: 30px;
-        }
-        .contact,.view{
-            margin-left: 300px;
-            font-size: 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabiswa Developer | KCSE Projects</title>
 
-        }
-        .profile{
-            width: 100px;
-            border-radius: 50px;
-            margin-left: 420px;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-            
-        }
-        .profiletext{
-            margin-left: 420px;
-            font-weight: bolder;
-            margin-top: 0;
-            font-family: agency fb;
-            font-size: 50;
-        }
-        .menu{
-            background-color: aqua;
-           height: 200pxs;
+html{
+    scroll-behavior:smooth;
+}
 
-        }
-        .home{
-            margin-left: 1px;
-            font-size: 20px;
-        }
-        .p1{
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .p2{
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            color: yellow;
-            border: 10px;
-           
-        }
-        .p3{
-            font-family: Arial;
-        }
-        
+body{
+    overflow-x:hidden;
+    background:#111;
+    color:white;
+}
 
-    </style>
+/* ===== Animated Background ===== */
+#home,.pricing,.project,.contact,.about{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(-45deg, #ff7b00, #ffb347, #019564, #1678ad);
+    background-size:400% 400%;
+    animation:gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Floating Image */
+.profile{
+    width:170px;
+    border-radius:50%;
+    border:4px solid white;
+    margin-top:20px;
+    animation:float 4s ease-in-out infinite;
+}
+.profile1{
+    width:60px;
+    border-radius:50%;
+    border:4px solid white;
+    margin-top:20px;
+    animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    padding:15px;
+    text-align:center;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffb347;
+    
+}
+nav a{
+    position: relative;
+    text-decoration: none;
+}
+
+nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
+    background: #ffb347;
+    transition: width 0.4s ease;
+}
+
+nav a:hover::after{
+    width: 100%;
+}
+/* Sections */
+section{
+    padding:100px 20px;
+    min-height:100vh;
+    text-align:center;
+    background:#f4f6f9;
+    color:#222;
+}
+
+/* Buttons */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:chocolate;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#a0522d;
+    transform:scale(1.05);
+}
+
+/* Contact Form */
+form{
+    max-width:400px;
+    margin:20px auto;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+footer{
+    background:#0d057c;
+    color:white;
+    padding:20px;
+}
+
+/* PROJECT */
+.project-box{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.project-box img{
+    width:250px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+
+.project-box img:hover{
+    transform:scale(1.05);
+}
+
+/* PRICING */
+.pricing ul{
+    list-style:none;
+    font-size:20px;
+}
+
+.pricing li{
+    margin:15px 0;
+    font-weight:bold;
+}
+
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:chocolate;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#a0522d;
+    transform:translateY(-3px);
+}
+</style>
 </head>
+
 <body>
-    <Div class="title"> <p class="nabiswa">Nabiswa.dev</p> <p class="kcse">KCSE COMPUTER PROJECT 2025</p></Div>
-    <div class="menu"> <a href="" class="home">HOME</a><a href="/nabiswa/contact.html" class="contact">CONTACT ME</a> <a href="/nabiswa/VIEW.HTML" class="view">GET PROJECT</a></div>
-    <div class="devjemo"><img src="/nabiswa/profile.jpg" alt="developer-picture" class="profile"></div>
-    <p class="profiletext">nabiswa james</p>
-    <div class="para">
-        <p class="p1">This website was developed to mentor young student on there way to be coming software engineers and get good grades in computer studies</p>
-        <p class="p2"> computer studies paper 1 <br><br> computer studies paper 2 <br><br>computer studies paper3</p>
-        <p class="p3">on paper1 and 2 ill help you with some question and answer contact me to get them </p>
-        <p class="p3" > paper3 the project part I have many copies of which i can get you one at only ksh700 just to help you other student might be needing only one of the file  dont worry I got you covered as below </p>
-        <ul style="color: yellow; font-size: 30px; text-align: center;">
-            <li>Full project - ksh700</li>
-            <li>Documentation - ksh300</li>
-            <li>victory system.-ksh400</li>
 
-        </ul>
-        <a href="">Jump to top </a>
 
+<nav>
+    <a href="#home">HOME</a>
+    <a href="#project">PROJECTS</a>
+    <a href="#pricing">PRICING</a>
+    <a href="#contact">CONTACT</a>
+    <a href="#About">ABOUT</a>
+</nav>
+<!-- HOME -->
+<section id="home">
+    <h1>Nabiswa Developer</h1>
+    <p>KCSE Computer Studies Projects & School Information Systems</p>
+
+    <img src="/profile.jpg" class="profile">
+
+    <p style="margin-top:20px;">
+        <img src="whatsapp.svg" style="width: 30px; margin-right: 10px; margin-bottom: 0%;" alt="📧"> WhatsApp:
+        <a href="https://wa.me/254792390205?text=Hello%20Nabiswa,%20I%20want%20the%20KCSE%20Computer%20Project"
+           style="color:white;font-weight:bold;">
+           0792 390 205
+        </a>
+    </p>
+
+    <p>
+        <img src="email.svg " style="width: 30px; margin-right: 10px; margin-bottom: 0%;" alt="📧"> Email:
+        <a href="mailto:nabiswaj8@gmail.com?subject=KCSE Project Inquiry"
+           style="color:white;font-weight:bold;">
+           nabiswaj8@gmail.com
+        </a>
+    </p>
+</section>
+
+   <!-- PROJECTS -->
+<section id="project" class="project">
+    <h2>Available Projects</h2>
+
+    <h3>Azani ISP Information System</h3>
+    <div class="project-box">
+        <img src="/image.png">
+        <img src="/Picture3.png">
     </div>
+
+    <h3 style="margin-top:40px;">Victory School Club Membership System</h3>
+    <div class="project-box">
+        <img src="/Victory School Club logo.png">
+        <img src="/Picture2.png">
+    </div>
+     <a href="https://wa.me/254792390205?text=Hello%20Nabiswa,%20I%20want%20the%20full%20KCSE%20Computer%20Project"
+       class="btn">Order Now</a>
+</section>
+   
+<!-- PRICING -->
+<section id="pricing" class="pricing">
+    <h2>Project Pricing</h2>
+    <ul>
+        <li>Full Project – Ksh 800</li>
+        <li>Documentation Only – Ksh 300</li>
+        <li>Access File – Ksh 500</li>
+    </ul>
+    
+    <a href="https://wa.me/254792390205?text=Hello%20Nabiswa,%20I%20want%20the%20full%20KCSE%20Computer%20Project"
+       class="btn" style="align-items: center;"> <img src="whatsapp.svg" style="width: 30px; margin-right: 10px; margin-bottom: 0%;" alt=""><p style="display: inline;">Order via WhatsApp</p></a>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2>Contact Me</h2>
+
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send via WhatsApp</button>
+    </form>
+
+    <a href="mailto:nabiswaj8@gmail.com?subject=KCSE Project Request"
+       class="btn">
+       Send Email
+    </a>
+</section>
+<section id="About" class="about">
+ <p >This website was developed to mentor young student on there way to be coming software engineers and get good grades in computer studies</p>
+        <p > computer studies paper 1 <br><br> computer studies paper 2 <br><br>computer studies paper3</p>
+        <p >on paper1 and 2 ill help you with some question and answer contact me to get them </p>
+        <p  > paper3 the project part I have many copies of which i can get you one at only ksh800 just to help you other student might be needing,, only one of the file  dont worry I got you covered here <a href="#pricing">Click here</a> </p>
+</section>
+<footer>
+    <img src="nb.jpg" class="profile1" alt="developer-picture">
+    © 2026 Nabiswa Developer | All Rights Reserved
+</footer>
+
+<script>
+// WhatsApp Form Sender
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let message = document.getElementById("message").value;
+
+    let url = `https://wa.me/254792390205?text=Hello Nabiswa, my name is ${name}. ${message}`;
+
+    window.open(url, "_blank");
+});
+</script>
 
 </body>
 </html>
